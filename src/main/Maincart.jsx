@@ -24,6 +24,9 @@ export const Maincart = () => {
 for (let i = 0; i < hasil.length; i++) {
     sum += hasil[i];
 }
+const delivery=12
+const discount=sum * 0.20
+const totall = discount + delivery
 console.log(sum);
     return (
         <div className='pt-8 m-auto max-w-7xl'>
@@ -82,20 +85,20 @@ console.log(sum);
 
                         <div className='flex justify-between w-full'>
                             <p className='text-[rgba(0,0,0,0.6)]'>Subtotal</p>
-                            <h1 className='font-semibold'>$512</h1>
+                            <h1 className='font-semibold'>${sum}</h1>
                         </div>
                         <div className='flex justify-between w-full'>
                             <p className='text-[rgba(0,0,0,0.6)]'>Discount (20%)</p>
-                            <h1 className='font-semibold'>-$512</h1>
+                            <h1 className='font-semibold'>-${Math.round(discount)}</h1>
                         </div>
                         <div className='flex justify-between w-full'>
                             <p className='text-[rgba(0,0,0,0.6)]'>Delivery Free</p>
-                            <h1 className='font-semibold'>$12</h1>
+                            <h1 className='font-semibold'>${delivery}</h1>
                         </div>
                     </div>
                     <div className='flex justify-between w-full mt-8'>
                         <p className='font-semibold'>Total</p>
-                        <h1 className='font-semibold'>${sum}</h1>
+                        <h1 className='font-semibold'>${Math.round(totall)}</h1>
                     </div>
 
                     <div className='flex justify-between mt-8'>
