@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { FaAngleRight } from "react-icons/fa6";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
-import { FaTrash } from "react-icons/fa6";
-import { FaPlus } from "react-icons/fa6";
-import { FaMinus } from "react-icons/fa6";
+
 import { Btn } from '../components/Btn';
+import { Cardcart } from '../components/Cardcart';
 export const Maincart = () => {
 
     const [products, setData] = useState(localStorage.cartproduct ? JSON.parse(localStorage.getItem('cartproduct')) : [])
@@ -17,7 +16,7 @@ export const Maincart = () => {
     let num = 0
     let angka = []
     const hasil = products.map((a) => {
-        return a.price
+        return a.price * a.qty
 
     })
     let sum = 0;
@@ -29,7 +28,7 @@ export const Maincart = () => {
     const totall = discount + delivery
     console.log(sum);
     return (
-        <div className='px-5 px-10 pt-8 m-auto max-w-7xl'>
+        <div className='px-5 pt-8 m-auto xl:px-0 max-w-7xl'>
             <div className='flex items-center gap-4 '>
                 <p>Home</p>
                 <FaAngleRight className='text-[16px]' />
@@ -40,41 +39,8 @@ export const Maincart = () => {
                 <div className=' border-[1.5px] h-[450px] border-gray-200 flex-col flex gap-5 overflow-y-scroll overflow-hidden  p-4 w-full md:w-[60%] rounded-xl'>
                     {
                         products.map((a, i) => (
-                            <div key={i} className='relative flex items-center justify-between mb-4'>
-                                <div className='flex items-center h-full'>
-
-
-                                    <div className='h-full sm:w-[140px] w-[150px] rounded-xl overflow-hidden bg-[#F0EEED]'>
-                                        <img src={a.img} alt="" className='h-full ' />
-                                    </div>
-                                    <div className='ms-3'>
-                                        <h1 className='text-lg font-semibold w-[90%] md:w-full'>{a.title}</h1>
-                                        <p className='text-[16px]'>Size : <span className='text-[15px] text-[rgba(0,0,0,0.6)]'>Large</span></p>
-                                        <p className='text-[16px]'>Color : <span className='text-[15px] text-[rgba(0,0,0,0.6)]'>White</span></p>
-                                        <h1 className='mt-2 text-lg font-semibold'>${a.price}</h1>
-                                    </div>
-                                </div>
-                                <div className='flex flex-col justify-between h-full'>
-                                    <div className='flex justify-end w-full '>
-
-                                        <FaTrash className='text-[#FF3333] absolute top-[24px] cursor-pointer' onClick={() => {
-                                            const aa = products.filter((e) => e.title != a.title)
-                                            setData(aa)
-                                        }
-                                        } />
-                                    </div>
-                                    <button className='flex bg-[#F0F0F0] right-[1px] bottom-0 absolute sm:static py-2 rounded-full px-4 items-center gap-4 b'>
-
-                                        <FaMinus className='' />
-
-                                        <p>1</p>
-                                        <FaPlus />
-
-                                    </button>
-
-                                </div>
-
-                            </div>
+                            <Cardcart key={i} img={a.img} qty={a.qty} products={products} setProducts={setData} title={a.title} price={a.price}></Cardcart>
+                           
                         ))
                     }
 
