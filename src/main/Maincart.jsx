@@ -35,7 +35,7 @@ export const Maincart = () => {
                 <p className='font-medium'> Cart</p>
             </div>
             <h1 className='text-5xl font-bold uppercase mt-[20px]'>Your cart</h1>
-            <div className='flex flex-col justify-between w-full mt-6 md:flex-row'>
+            <div className='flex flex-col justify-between w-full gap-5 mt-6 lg:gap-0 md:flex-row'>
                 <div className=' border-[1.5px] h-[450px] border-gray-200 flex-col flex gap-5 overflow-y-scroll overflow-hidden  p-4 w-full md:w-[60%] rounded-xl'>
                     {
                         products.map((a, i) => (
