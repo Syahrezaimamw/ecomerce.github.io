@@ -1,4 +1,4 @@
-export const getApi= async()=>{
+export const getApi= async(show)=>{
     return await fetch('https://api.escuelajs.co/api/v1/products')
     .then(a=>a.json())
     .then(a=>{
@@ -14,6 +14,7 @@ export const getApi= async()=>{
         //     //     a.category.image
         //     // ]
         // }
+        show(false)
         return a
     })
 

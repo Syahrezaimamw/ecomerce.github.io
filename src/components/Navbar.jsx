@@ -13,11 +13,11 @@ export const Navbar = () => {
                 
             <img src={Logo} alt="" className='w-[160px]' />
             </div>
-            <ul className='items-center hidden gap-8 md:flex'>
-                <Link to='/ecomerce.github.io/'>Home</Link>
-                <li>Shop</li>
-                <li>New Arrivals</li>
-                <li>Brands</li>
+            <ul className='items-center hidden gap-8 md:flex text-[17px]'>
+                <Link to='/ecomerce.github.io/' className='bf'>Home</Link>
+                <li className='bf'>Shop</li>
+                <li className='bf'>New Arrivals</li>
+                <li className='bf'>Brands</li>
             </ul>
             <div className='items-center px-6 py-[12px] lg:w-[300px] hidden lg:flex xl:w-[500px] bg-[#F0F0F0] rounded-full '>
                 <FaMagnifyingGlass className='lg:text-3xl xl:text-xl  me-1 text-[rgba(0,0,0,0.4)]'>

@@ -21,7 +21,13 @@ export const Sliderlogo = () => {
                     <img src={prada} alt="Apple" />
                 </li>
                 <li>
-                    <img src={calvin} alt="Spark" />
+                    <img src={calvin} alt="Spark" className='w-[290px] ' />
+                </li>
+                <li>
+                    <img src={Ver} alt="Airbnb" />
+                </li>
+                <li>
+                    <img src={prada} alt="Apple" />
                 </li>
             </ul>
             <ul
@@ -41,7 +47,13 @@ export const Sliderlogo = () => {
                     <img src={prada} alt="Apple" />
                 </li>
                 <li>
-                    <img src={calvin} alt="Spark" />
+                    <img src={calvin} alt="Spark" className='w-[290px] ' />
+                </li>
+                <li>
+                    <img src={Ver} alt="Airbnb" />
+                </li>
+                <li>
+                    <img src={prada} alt="Apple" />
                 </li>
             </ul>
         </div>

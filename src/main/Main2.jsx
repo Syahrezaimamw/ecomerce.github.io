@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { Card } from '../components/Card'
 import { getApi } from '../service/api'
 import { Btn } from '../components/Btn'
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+import { CardSekelaton } from '../components/CardSekelaton';
 export const Main2 = () => {
     const [data, setData] = useState([])
     const [show, setShow] = useState(false)
+    const [sekelaton,setSekelaton]=useState(true)
     useEffect(() => {
-        getApi().then(a => setData(a))
+        setSekelaton(true)
+        getApi(setSekelaton).then(a => setData(a))
 
     }, [])
     function handleShow() {
@@ -18,28 +23,34 @@ export const Main2 = () => {
         localStorage.setItem('cartproduct', JSON.stringify(products))
     }, [products])
     // localStorage.removeItem('cartproduct')
-
-
-
     // 
     console.log(products)
     return (
         <div className='m-auto mt-20 max-w-7xl'>
             <h1 className='text-[40px] font-bold text-center uppercase '> new arrivals</h1>
+       
             <div className='hidden lg:flex mt-[40px] gap-5 justify-center flex-wrap'>
                 {
+                    sekelaton?
+                    [1,2,3,4,5].map((a)=>(
+                        
+                        <CardSekelaton key={a}/>
+                    ))
+                    :
                     data.map((e, i) => (
                         i < 5 ?
-                        
-                            <Card key={i} img={e.images[0]} setProducts={setProducts} products={products} jenis={e.description} title={e.title} price={e.price}></Card> 
+
+                            <Card key={i} img={e.images[0]} setProducts={setProducts} products={products} jenis={e.description} title={e.title} price={e.price}></Card>
                             : ''
-                       
+
                     ))
                 }
+           
 
             </div>
             <div className={`lg:hidden flex flex-col m-auto bg-white mt-9`}>
                 <div className="flex pb-10 overflow-x-scroll hide-scroll-bar">
+
                     <div className="flex gap-10 ml-10 flex-nowrap lg:ml-40 md:ml-20 ">
                         {
                             data.map((e, i) => (
@@ -66,5 +77,5 @@ export const Main2 = () => {
                 <Btn onClick={handleShow}>{show == false ? 'View All ' : 'Close All'}</Btn>
             </div>
         </div>
-            )
+    )
 }
