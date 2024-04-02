@@ -14,8 +14,8 @@ export const Navbar = () => {
             <img src={Logo} alt="" className='w-[160px]' />
             </div>
             <ul className='items-center hidden gap-8 md:flex'>
+                <Link to='/ecomerce.github.io/'>Home</Link>
                 <li>Shop</li>
-                <li>On Sale</li>
                 <li>New Arrivals</li>
                 <li>Brands</li>
             </ul>

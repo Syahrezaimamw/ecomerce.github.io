@@ -11,6 +11,7 @@ import { Cart } from './layout/Cart.jsx';
 import { Coba } from './Coba.jsx';
 import { useState } from 'react';
 import { createContext } from 'react';
+import 'animate.css';
 import { useEffect } from 'react';
 export const Appctx = createContext([{
 
